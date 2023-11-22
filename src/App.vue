@@ -1,0 +1,45 @@
+<script setup lang="ts">
+import BcafLogo from './components/BcafLogo.vue';
+import TitleMessage from './components/TitleMessage.vue';
+import Card from './components/Card.vue';
+
+const wallpaper = `/assets/images/wallpapers/${Math.floor(Math.random() * 10)}.png`;
+
+</script>
+
+<template>
+  <div class="wallpaper">
+    <img v-bind:src="wallpaper">
+    <div class="title">
+      <BcafLogo />
+      <h1>🅱 Coolen Allgemeinen Ficker</h1>
+      <TitleMessage />
+    </div>
+    <div style="background-image: linear-gradient(to bottom, #24242400, #242424ff); position: absolute; bottom: 0; height: 20%; width: 100%"></div>
+  </div>
+
+  <div style="position: absolute; top: 110%; width: 100%">
+    <h1 style="position: relative; left: -50%">Mehr Shit coming <i>soon™</i></h1>
+    <Card title="Discord Server" content="Der Ort der die coolen allgemeinen Ficker zusammenbringt." href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" thumbnail="/assets/images/discord.svg" />
+    <Card title="Minecraft SMP" content="🅱CAF hat einen eigenen Minecraft SMP auf dem sowohl Vanilla als auch Modpack Welten gespielt werden." href="smp/" thumbnail="/assets/images/minecraft.png" />
+    <Card title="🅱CAF auf Github" content="🅱CAF hat nun eine Github Organization wo diese Website sowie zukünftige Projekte von 🅱CAF zu finden sind." href="https://github.com/Die-Coolen-Allgemeinen-Ficker" thumbnail="/assets/images/github.png" />
+    <p style="position: relative; left: -50%; color: gray">Powered by Github Pages<br>© 2023 Die Coolen Allgemeinen Ficker</p>
+  </div>
+</template>
+
+<style scoped>
+
+.wallpaper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%
+}
+
+.title {
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+</style>
