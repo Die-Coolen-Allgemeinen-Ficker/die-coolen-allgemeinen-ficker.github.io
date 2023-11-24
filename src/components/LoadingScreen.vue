@@ -1,12 +1,3 @@
-<script lang="ts">
-export default {
-    mounted () {
-        document.getElementById('loadingScreen')?.classList.add('hidden');
-        setTimeout(() => {document.getElementById('loadingScreen')?.remove();}, 500);
-    }
-}
-</script>
-
 <template>
     <div id="loadingScreen">
         <h1 style="position: relative; top: 40%;">🅱CAF</h1>
