@@ -13,13 +13,14 @@ export default {
             list!.replaceChildren();
 
             for (let mod of modlist) {
+                const element = document.createElement('li');
+                element.innerHTML = mod;
+
                 if (regex) {
-                    if (!mod.match(regex))
+                    if (!element.innerText.match(regex))
                         continue;
                 }
 
-                const element = document.createElement('li');
-                element.innerHTML = mod;
                 list!.appendChild(element);
             }
 

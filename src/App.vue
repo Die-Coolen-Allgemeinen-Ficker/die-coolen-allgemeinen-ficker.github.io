@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import LoadingScreen from './components/LoadingScreen.vue';
 import BcafLogo from './components/BcafLogo.vue';
 import TitleMessage from './components/TitleMessage.vue';
 import Card from './components/Card.vue';
@@ -8,11 +9,12 @@ const wallpaper = `/assets/images/wallpapers/${Math.floor(Math.random() * 10)}.p
 </script>
 
 <template>
+  <LoadingScreen />
   <div class="wallpaper">
     <img v-bind:src="wallpaper">
     <div class="title">
       <BcafLogo />
-      <h1>🅱 Coolen Allgemeinen Ficker</h1>
+      <h1 style="filter: drop-shadow(0 0 0.1em #000000ff);">🅱 Coolen Allgemeinen Ficker</h1>
       <TitleMessage />
     </div>
     <div style="background-image: linear-gradient(to bottom, #24242400, #242424ff); position: absolute; bottom: 0; height: 20%; width: 100%"></div>

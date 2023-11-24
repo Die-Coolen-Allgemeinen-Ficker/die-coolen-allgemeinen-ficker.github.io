@@ -9,9 +9,17 @@ function removeVideo () {
 }
 </script>
 
+<script lang="ts">
+export default {
+    mounted () {
+        (document.getElementById('intro') as HTMLMediaElement).play();
+    }
+}
+</script>
+
 <template>
     <div class="logo">
-        <video src="/assets/bcaf_intro.mp4" autoplay muted id="intro" style="border-radius: 50%; object-fit: cover; height: 20%; width: 20%" @ended="removeVideo"></video>
+        <video src="/assets/bcaf_intro.mp4" muted id="intro" style="border-radius: 50%; object-fit: cover; height: 20%; width: 20%" @ended="removeVideo"></video>
     </div>
 </template>
 
