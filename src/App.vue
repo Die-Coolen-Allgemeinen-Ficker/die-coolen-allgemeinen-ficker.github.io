@@ -6,12 +6,17 @@ import Card from './components/Card.vue';
 
 const wallpaper = `/assets/images/wallpapers/${Math.floor(Math.random() * 10)}.png`;
 
+function removeLoadingScreen () {
+    document.getElementById('loadingScreen')?.classList.add('hidden');
+    setTimeout(() => {document.getElementById('loadingScreen')?.remove();}, 500);
+}
+
 </script>
 
 <template>
   <LoadingScreen />
   <div class="wallpaper">
-    <img v-bind:src="wallpaper">
+    <img v-bind:src="wallpaper" @load="removeLoadingScreen">
     <div class="title">
       <BcafLogo />
       <h1 style="filter: drop-shadow(0 0 0.1em #000000ff);">🅱 Coolen Allgemeinen Ficker</h1>
