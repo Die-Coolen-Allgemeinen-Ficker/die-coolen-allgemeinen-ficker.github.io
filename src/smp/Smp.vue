@@ -21,7 +21,7 @@ import Download from '../components/Download.vue';
             Mindestanforderung zugewiesener Arbeitsspeicher: 8GB<br>
             Modliste: <a href="/smp/modlist/">Liste sehen / durchsuchen</a>
             </p>
-            <Download href="/assets/sexpack-1.0.0.zip" name="sexpack-1.0.0.zip" />
+            <Download href="/assets/sexpack-1.0.1.zip" name="sexpack-1.0.1.zip" />
             <br><br>
             <h2>Download Anweisungen</h2>
             <p>
