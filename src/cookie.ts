@@ -7,10 +7,10 @@ export class Cookie {
 
         if (document.cookie === '') {
             document.cookie = 'path=/';
-            document.cookie = 'data={}';
-            document.cookie = `expires=${expiration.toUTCString()}`;
+            document.cookie = 'data={};path=/';
+            document.cookie = `expires=${expiration.toUTCString()};path=/`;
         } else
-            document.cookie = `expires=${expiration.toUTCString()}`;
+            document.cookie = `expires=${expiration.toUTCString()};path=/`;
 
         return JSON.parse(document.cookie.split('; ').filter(pair => pair.startsWith('data='))[0]?.split('=')[1])
     }
@@ -25,7 +25,7 @@ export class Cookie {
     }
 
     static delete () {
-        document.cookie = 'data={}';
-        document.cookie = 'expires=Thu, 01 Jan 1970 00:00:00 UTC';
+        document.cookie = 'data={};path=/';
+        document.cookie = 'expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/';
     }
 }
