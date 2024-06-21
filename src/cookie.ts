@@ -8,6 +8,7 @@ export class Cookie {
         if (document.cookie === '') {
             document.cookie = 'data={}';
             document.cookie = `expires=${expiration.toUTCString()}`;
+            document.cookie = 'path=/';
         } else
             document.cookie = `expires=${expiration.toUTCString()}`;
 
