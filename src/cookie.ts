@@ -6,9 +6,9 @@ export class Cookie {
         expiration.setDate(expiration.getDate() + 7);
 
         if (document.cookie === '') {
+            document.cookie = 'path=/';
             document.cookie = 'data={}';
             document.cookie = `expires=${expiration.toUTCString()}`;
-            document.cookie = 'path=/';
         } else
             document.cookie = `expires=${expiration.toUTCString()}`;
 
