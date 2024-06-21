@@ -16,7 +16,10 @@ export default defineConfig({
       input: {
         main: resolve(root, 'index.html'),
         smp: resolve(root, 'smp', 'index.html'),
-        modlist: resolve(root, 'smp', 'modlist', 'index.html')
+        modlist: resolve(root, 'smp', 'modlist', 'index.html'),
+        'my-account': resolve(root, 'my-account', 'index.html'),
+        profile: resolve(root, 'profile', 'index.html'),
+        list: resolve(root, 'profile', 'list', 'index.html')
       }
     }
   },
