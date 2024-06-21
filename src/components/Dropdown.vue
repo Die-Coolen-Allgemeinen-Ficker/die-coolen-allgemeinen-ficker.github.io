@@ -51,8 +51,8 @@ export default {
 .dropdown {
     position: relative;
     display: inline-block;
-    font-size: 2em;
-    width: 50%;
+    font-size: 1em;
+    width: 80%;
     border: solid;
     border-radius: 1em;
 }

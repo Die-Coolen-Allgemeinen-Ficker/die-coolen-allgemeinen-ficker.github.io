@@ -20,7 +20,7 @@ export default {
         p!.innerText = this.accountData.profile.minecraftUuid ? await this.getMinecraftUserName(this.accountData.profile.minecraftUuid) : '';
 
         const dropdownContainer = document.getElementById('dropdownContainer')!;
-        createApp({ extends: Dropdown }, { name: 'Liste', color: this.accountData.profile.color, content: this.achievementList(this.accountData.profile.achievements) }).mount(dropdownContainer);
+        createApp(Dropdown, { name: 'Liste', color: this.accountData.profile.color, content: this.achievementList(this.accountData.profile.achievements) }).mount(dropdownContainer);
     },
     methods: {
         getMinecraftUserName (uuid: string): Promise<string> {

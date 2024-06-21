@@ -34,7 +34,7 @@ export default {
             });
 
             const searchContainer = document.getElementById('searchContainer')!;
-            createApp({ extends: SearchList }, { entries }).mount(searchContainer);
+            createApp(SearchList, { entries }).mount(searchContainer);
         }
         request.send();
     }
