@@ -18,10 +18,10 @@ export class Cookie {
     static setData (key: string, value: string) {
         const expiration = new Date();
         expiration.setDate(expiration.getDate() + 7);
-        document.cookie = `expires=${expiration.toUTCString()}`;
+        document.cookie = `expires=${expiration.toUTCString()};path=/`;
         const data = JSON.parse(document.cookie.split('; ').filter(pair => pair.startsWith('data='))[0]?.split('=')[1]);
         data[key] = value;
-        document.cookie = `data=${JSON.stringify(data)}`;
+        document.cookie = `data=${JSON.stringify(data)};path=/`;
     }
 
     static delete () {
