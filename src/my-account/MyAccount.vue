@@ -12,7 +12,7 @@ export default {
         if (cookie.accessToken) {
             const user = JSON.parse(cookie.user);
             window.location.replace(`/profile/?user=${user.id}`);
-        } else if (!cookie.accessToken && code) {
+        } else if (code) {
             const request = new XMLHttpRequest();
             request.open('GET', 'https://bcaf-api.purplemoss-6328e4b6.germanywestcentral.azurecontainerapps.io/v1/accounts/auth');
             request.setRequestHeader('authorization', code);
