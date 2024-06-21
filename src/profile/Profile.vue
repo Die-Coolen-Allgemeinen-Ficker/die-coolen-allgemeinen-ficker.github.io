@@ -34,7 +34,7 @@ export default {
             document.title = isAccountOwner ? 'Dein Profil' : `Profil von ${accountData.name}`;
 
             const profileContainer = document.getElementById('profileContainer')!;
-            createApp({ extends: Profile }, { accountData, isAccountOwner }).mount(profileContainer);
+            createApp(Profile, { accountData, isAccountOwner }).mount(profileContainer);
         }
         request.send();
     }
