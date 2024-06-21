@@ -1,9 +1,24 @@
 <script setup lang="ts">
+import { Cookie } from '../cookie';
+</script>
+
+<script lang="ts">
+export default {
+    mounted () {
+        const user = Cookie.getData().user;
+        if (user) {
+            const data = JSON.parse(user);
+            (document.getElementById('navbarPfp') as HTMLImageElement).src = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}`;
+        }
+    }
+}
 </script>
 
 <template>
     <div class="navbar">
         <a href="/"><img src="/assets/images/bcaf.png"></a>
+        <a href="/my-account/"><img src="/assets/images/default_pfp.svg" style="border-radius: 50%;" id="navbarPfp"></a>
+        <a href="/profile/list/"><img src="/assets/images/search.png" style="border-radius: 50%;"></a>
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="/assets/images/discord.svg"></a>
         <a href="/smp/"><img src="/assets/images/minecraft.png"></a>
         <a href="https://github.com/Die-Coolen-Allgemeinen-Ficker"><img src="/assets/images/github.png"></a>

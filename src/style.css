@@ -11,6 +11,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  color-scheme: only dark;
 }
 
 a {
@@ -67,8 +69,9 @@ button:focus-visible {
   border-radius: 2em;
   padding: 1em;
   object-fit: contain;
+  margin-bottom: 5em;
 }
-.container p {
+.container p, a {
   font-size: 1.5em;
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
@@ -82,6 +85,25 @@ button:focus-visible {
   animation: 
     typing 3.5s steps(40, end),
     blink-caret .75s step-end infinite;
+}
+
+.click {
+  background-color: #747bff;
+  color: white;
+  font-size: 2em;
+  padding: 0.5em;
+  border-radius: 3em;
+  object-fit: contain;
+  transition: all 0.2s ease-in-out;
+}
+
+.click img {
+  height: 1em;
+}
+
+.click:hover {
+  color: white;
+  filter: drop-shadow(0 0 2em #aa88ff55);
 }
 
 /* The typing effect */

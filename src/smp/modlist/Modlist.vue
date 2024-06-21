@@ -10,7 +10,7 @@ import SearchList from '../../components/SearchList.vue';
             <h1>Server Modliste</h1>
             <SearchList />
         </div>
-        <p style="position: relative; text-align: center; color: gray">Powered by Github Pages<br>© 2023 Die Coolen Allgemeinen Ficker</p>
+        <p style="position: relative; text-align: center; color: gray">Powered by Github Pages<br>© 2024 Die Coolen Allgemeinen Ficker</p>
     </div>
 </template>
 

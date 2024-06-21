@@ -1,10 +1,12 @@
+<script setup lang="ts">
+defineProps<{
+    entries: HTMLAnchorElement[]
+}>();
+</script>
+
 <script lang="ts">
-import { modlist } from '../data/smp.json';
 
 export default {
-    data () {
-        return {}
-    },
     methods: {
         fillList (search?: string) {
             const list = document.getElementById('list');
@@ -12,9 +14,9 @@ export default {
 
             list!.replaceChildren();
 
-            for (let mod of modlist) {
+            for (const entry of this.entries) {
                 const element = document.createElement('li');
-                element.innerHTML = mod;
+                element.appendChild(entry);
 
                 if (regex) {
                     if (!element.innerText.match(regex))
@@ -38,13 +40,13 @@ export default {
 </script>
 
 <template>
-    <input @input="updateSearch" id="search" placeholder="Suche nach Mods">
+    <input @input="updateSearch" id="search" placeholder="Suche">
     <p id="results">Ergebnisse: </p>
     <ul id="list"></ul>
 </template>
 
-<style scoped>
-ul {
+<style>
+.list {
     list-style-type: none;
 }
 
