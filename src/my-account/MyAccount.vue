@@ -17,20 +17,21 @@ export default {
             request.open('GET', 'https://bcaf-api.purplemoss-6328e4b6.germanywestcentral.azurecontainerapps.io/v1/accounts/auth');
             request.setRequestHeader('authorization', code);
             request.onreadystatechange = () => {
-                if (!(request.readyState == 4 && request.status == 200))
+                if (request.readyState != 4)
                     return;
+
+                if (request.status != 200)
+                    return alert('Etwas ist schiefgegangen');
 
                 const json = JSON.parse(request.response);
 
-                if (json.response.error) {
-                    alert(`Etwas ist schiefgegangen: ${json.response.error}`);
-                    return;
-                }
+                if (json.response.error)
+                    return alert(`Etwas ist schiefgegangen: ${json.response.error}`);
 
                 Cookie.setData('accessToken', json.response.token.access_token);
                 Cookie.setData('refreshToken', json.response.token.refresh_token);
                 Cookie.setData('user', JSON.stringify(json.response.user));
-                window.location.replace('/my-account/');
+                window.location.replace(`/profile/?user=${json.response.user.id}`);
             }
             request.send();
         } else {
