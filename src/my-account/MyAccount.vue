@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import LoadingScreen from '../components/LoadingScreen.vue';
 import Navbar from '../components/Navbar.vue';
 import { Cookie } from '../cookie';
 </script>
@@ -7,7 +8,10 @@ import { Cookie } from '../cookie';
 export default {
     mounted () {
         const cookie = Cookie.getData();
-        const code = new URLSearchParams(window.location.search).get('code');
+        const searchParams = new URLSearchParams(window.location.search);
+        const code = searchParams.get('code');
+        const redirect = searchParams.get('redirect');
+        const state = searchParams.get('state');
 
         if (cookie.accessToken) {
             const user = JSON.parse(cookie.user);
@@ -31,7 +35,7 @@ export default {
                 Cookie.setData('accessToken', json.response.token.access_token);
                 Cookie.setData('refreshToken', json.response.token.refresh_token);
                 Cookie.setData('user', JSON.stringify(json.response.user));
-                window.location.replace(`/profile/?user=${json.response.user.id}`);
+                window.location.replace(state ? decodeURIComponent(state) : `/profile/?user=${json.response.user.id}`);
             }
             request.send();
         } else {
@@ -43,9 +47,12 @@ export default {
 
             const a = document.createElement('a');
             a.innerHTML = 'Anmelden';
-            a.href = 'https://discord.com/oauth2/authorize?client_id=1098658997684412476&response_type=code&redirect_uri=https%3A%2F%2Fdie-coolen-allgemeinen-ficker.github.io%2Fmy-account%2F&scope=identify+guilds';
+            a.href = `https://discord.com/oauth2/authorize?client_id=1098658997684412476&response_type=code&redirect_uri=https%3A%2F%2Fdie-coolen-allgemeinen-ficker.github.io%2Fmy-account%2F&scope=identify+guilds${redirect ? `&state=${encodeURIComponent(redirect)}` : ''}`;
             a.className = 'click';
             accountView?.appendChild(a);
+
+            document.getElementById('loadingScreen')?.classList.add('hidden');
+            setTimeout(() => {document.getElementById('loadingScreen')?.remove();}, 500);
         }
     }
 }
@@ -53,6 +60,7 @@ export default {
 
 <template>
     <Navbar />
+    <LoadingScreen />
     <div style="position: absolute; width: 100%; top: 20%;">
         <div class="container">
             <h1>⚠️ Hinweis ⚠️</h1>

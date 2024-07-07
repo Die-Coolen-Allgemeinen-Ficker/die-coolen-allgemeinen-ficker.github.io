@@ -29,6 +29,7 @@ export interface AccountData {
             bReactionCount: number;
             messageCount: number;
             messagesLast30Days: number;
+            yapOMeter: number;
         };
         achievements: AchievementData[];
     };
@@ -52,7 +53,7 @@ export function validateAccessToken () {
             if (request.readyState == 4) {
                 if (request.status == 401) {
                     Cookie.delete();
-                    window.location.replace('/my-account/');
+                    window.location.replace(`/my-account/?redirect=${encodeURIComponent(`${window.location.pathname}${window.location.search}`)}`);
                     resolve(false);
                     return
                 }

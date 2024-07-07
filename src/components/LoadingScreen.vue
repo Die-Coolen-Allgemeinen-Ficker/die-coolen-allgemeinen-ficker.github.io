@@ -1,19 +1,20 @@
 <template>
     <div id="loadingScreen">
-        <h1 style="position: relative; top: 40%;">🅱CAF</h1>
+        <h1 style="position: relative; top: 40%">🅱CAF</h1>
         <div class="lds-roller" style="top: 40%;"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     </div>
 </template>
 
 <style scoped>
 #loadingScreen {
+    text-align: center;
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     background-color: #242424;
-    z-index: 2;
+    z-index: 1;
 }
 
 .hidden {

@@ -12,7 +12,7 @@ export class Cookie {
         } else
             document.cookie = `expires=${expiration.toUTCString()};path=/`;
 
-        return JSON.parse(document.cookie.split('; ').filter(pair => pair.startsWith('data='))[0]?.split('=')[1])
+        return JSON.parse(document.cookie.split('; ').filter(pair => pair.startsWith('data='))[0]?.split('=')[1] || '{}');
     }
 
     static setData (key: string, value: string) {

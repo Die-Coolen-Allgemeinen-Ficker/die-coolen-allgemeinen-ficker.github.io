@@ -19,7 +19,8 @@ export default defineConfig({
         modlist: resolve(root, 'smp', 'modlist', 'index.html'),
         'my-account': resolve(root, 'my-account', 'index.html'),
         profile: resolve(root, 'profile', 'index.html'),
-        list: resolve(root, 'profile', 'list', 'index.html')
+        list: resolve(root, 'profile', 'list', 'index.html'),
+        worlds: resolve(root, 'smp', 'worlds', 'index.html')
       }
     }
   },
