@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { AccountData, AchievementData } from '../account';
+import {
+    AccountData,
+    AchievementData
+} from '../account';
 import Dropdown from './Dropdown.vue';
 
 defineProps<{
@@ -76,18 +79,14 @@ export default {
             const color = (document.getElementById('editColor') as HTMLInputElement).value;
             const backgroundImageUrl = (document.getElementById('editBackgroundImageUrl') as HTMLInputElement).value;
             const foregroundImageUrl = (document.getElementById('editForegroundImageUrl') as HTMLInputElement).value;
-            if (color)
-                body.color = color;
-            if (backgroundImageUrl) {
-                if (!this.validateUrl(backgroundImageUrl))
-                    return alert('backgroundImageUrl muss eine gültige URL sein.');
-                body.backgroundImageUrl = backgroundImageUrl;
-            }
-            if (foregroundImageUrl) {
-                if (!this.validateUrl(foregroundImageUrl))
-                    return alert('foregroundImageUrl muss eine gültige URL sein.');
-                body.foregroundImageUrl = foregroundImageUrl;
-            }
+            body.color = color;
+            if (!this.validateUrl(backgroundImageUrl))
+                return alert('backgroundImageUrl muss eine gültige URL sein.');
+            body.backgroundImageUrl = backgroundImageUrl;
+            if (foregroundImageUrl !== '' && !this.validateUrl(foregroundImageUrl))
+                return alert('foregroundImageUrl muss eine gültige URL sein.');
+            body.foregroundImageUrl = foregroundImageUrl;
+            console.log(body);
 
             const accessToken: string = Cookie.getData().accessToken;
             const request = new XMLHttpRequest();
@@ -110,6 +109,7 @@ export default {
 </script>
 
 <template>
+    <LoadingScreen />
     <div id="edit" class="edit" v-bind:style="{ backgroundColor: `${accountData.profile.color}` }">
         <div style="margin: 5%;">
             <button v-on:click="closeEdit">&times;</button>
@@ -129,7 +129,7 @@ export default {
         </div>
     </div>
 
-    <div v-bind:style="{ backgroundImage: `url(${accountData.profile.foregroundImageUrl})` }" style="background-size: cover; height: 110em; width: 100%; position: absolute; opacity: 0.8; z-index: 2; pointer-events: none;"></div>
+    <div v-bind:style="{ backgroundImage: `url(${accountData.profile.foregroundImageUrl})` }" style="background-size: cover; height: 110em; width: 100%; position: absolute; opacity: 0.8; z-index: 1; pointer-events: none;"></div>
     <div class="profile" v-bind:style="{ backgroundImage: `url(${accountData.profile.backgroundImageUrl})`, borderColor: accountData.profile.color }">
         <div class="top" v-bind:style="{ backgroundColor: `${accountData.profile.color}55` }">
             <div style="display: flex;">
@@ -168,6 +168,7 @@ export default {
                     <p>Letzte 30 Tage: {{ accountData.profile.messageStats.messagesLast30Days }}</p>
                     <p>🅱 Reactions: {{ accountData.profile.messageStats.bReactionCount }}</p>
                     <p>N-Word Count: {{ accountData.profile.messageStats.nWordCount }}</p>
+                    <p>Yap-O-Meter (⌀ Zeichen pro Nachricht): {{ accountData.profile.messageStats.yapOMeter }}</p>
                     <h3>BCAF Share</h3>
                     <div class="bcafShare" v-bind:style="{ backgroundColor: `${accountData.profile.color}` }">
                         <p>Coming <i>soon™</i></p>
@@ -277,7 +278,7 @@ export default {
     height: 0%;
     width: 80%;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 10%;
     left: 10%;
     overflow-x: hidden;

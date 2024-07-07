@@ -7,6 +7,7 @@ import {
 import Navbar from '../../components/Navbar.vue';
 import SearchList from '../../components/SearchList.vue';
 import { Cookie } from '../../cookie';
+import LoadingScreen from '../../components/LoadingScreen.vue';
 </script>
 
 <script lang="ts">
@@ -35,6 +36,9 @@ export default {
 
             const searchContainer = document.getElementById('searchContainer')!;
             createApp(SearchList, { entries }).mount(searchContainer);
+
+            document.getElementById('loadingScreen')?.classList.add('hidden');
+            setTimeout(() => {document.getElementById('loadingScreen')?.remove();}, 500);
         }
         request.send();
     }
@@ -43,6 +47,7 @@ export default {
 
 <template>
     <Navbar />
+    <LoadingScreen />
     <div style="position: absolute; width: 100%; top: 20%;">
         <div class="container">
             <h1>⚠️ Hinweis ⚠️</h1>

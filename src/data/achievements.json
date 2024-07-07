@@ -14,5 +14,33 @@
     {
         "name": "alive chat wtf???",
         "description": "Schicke 2000 Nachrichten innerhalb von 30 Tagen."
+    },
+    {
+        "name": "Reverse Engineer",
+        "description": "Finde im Source Code auf Github heraus wie man dieses Achievement kriegt."
+    },
+    {
+        "name": "My Little Pookie Bear :3",
+        "description": "Bring einen Admin dazu dir dieses Achievement mit /pookiebear zu geben."
+    },
+    {
+        "name": "Nuh Uh",
+        "description": "Ändere deinen Nickname zu einem unzulässigen Nickname der korrigiert werden muss."
+    },
+    {
+        "name": "Reviving Chat",
+        "description": "Schicke eine Nachricht in einen Kanal der seit drei Monaten tot ist."
+    },
+    {
+        "name": "I saw what you deleted",
+        "description": "🤨📸"
+    },
+    {
+        "name": "How???",
+        "description": "Schreibe in einen archivierten Kanal."
+    },
+    {
+        "name": "Coincidence? I think not!",
+        "description": "[Secret Achievement] Ihr habt das sicherlich abgesprochen."
     }
 ]

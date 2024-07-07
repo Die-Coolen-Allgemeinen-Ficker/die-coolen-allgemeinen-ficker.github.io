@@ -9,6 +9,13 @@ export default {
         if (user) {
             const data = JSON.parse(user);
             (document.getElementById('navbarPfp') as HTMLImageElement).src = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}`;
+            document.getElementById('logout')!.style.display = 'inherit';
+        }
+    },
+    methods: {
+        logout () {
+            Cookie.delete();
+            window.location.reload();
         }
     }
 }
@@ -22,6 +29,7 @@ export default {
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="/assets/images/discord.svg"></a>
         <a href="/smp/"><img src="/assets/images/minecraft.png"></a>
         <a href="https://github.com/Die-Coolen-Allgemeinen-Ficker"><img src="/assets/images/github.png"></a>
+        <button v-on:click="logout" id="logout">Abmelden</button>
     </div>
 </template>
 
@@ -32,7 +40,7 @@ export default {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
 }
 .navbar a {
     float: left;
@@ -48,5 +56,12 @@ export default {
 .navbar img {
     object-fit: contain;
     width: 2em;
+}
+.navbar button {
+    margin-top: 1em;
+    background-color: #e64d4d;
+    display: none;
+    margin-left: auto;
+    margin-right: 5%;
 }
 </style>
