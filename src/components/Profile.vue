@@ -168,7 +168,7 @@ export default {
                     <p>Letzte 30 Tage: {{ accountData.profile.messageStats.messagesLast30Days }}</p>
                     <p>🅱 Reactions: {{ accountData.profile.messageStats.bReactionCount }}</p>
                     <p>N-Word Count: {{ accountData.profile.messageStats.nWordCount }}</p>
-                    <p>Yap-O-Meter (⌀ Zeichen pro Nachricht): {{ accountData.profile.messageStats.yapOMeter }}</p>
+                    <p>Yap-O-Meter (⌀ Zeichen pro Nachricht): {{ accountData.profile.messageStats.yapOMeter.toString().slice(0, 5) }}</p>
                     <h3>BCAF Share</h3>
                     <div class="bcafShare" v-bind:style="{ backgroundColor: `${accountData.profile.color}` }">
                         <p>Coming <i>soon™</i></p>
