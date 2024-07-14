@@ -50,16 +50,6 @@ export default {
     list-style-type: none;
 }
 
-input {
-    color: #aa88ff;
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    font-size: 1.5em;
-    width: 75%;
-    background-color: #222222;
-    border: 0;
-    border-radius: 0.5em;
-}
-
 ::placeholder {
     color: gray;
 }

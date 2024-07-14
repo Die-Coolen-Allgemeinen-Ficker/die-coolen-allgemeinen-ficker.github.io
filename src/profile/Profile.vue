@@ -19,28 +19,38 @@ export default {
         const cookieData = Cookie.getData();
         const accessToken: string = cookieData.accessToken;
         const clientUserId: string = JSON.parse(cookieData.user).id;
-        const userId = new URLSearchParams(window.location.search).get('user');
-        const request = new XMLHttpRequest();
-        request.open('GET', `https://bcaf-api.purplemoss-6328e4b6.germanywestcentral.azurecontainerapps.io/v1/accounts/lookup/${userId}`);
-        request.setRequestHeader('authorization', accessToken);
-        request.onreadystatechange = () => {
-            if (request.readyState != 4)
-                return;
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        const userId = urlSearchParams.get('user') || urlSearchParams.get('state');
+        const code = urlSearchParams.get('code');
 
-            if (request.status !== 200)
-                return alert('Etwas ist schiefgegangen.');
+        if (code) {
+            // request
+            console.log(code);
 
-            const accountData = JSON.parse(request.response).response as AccountData;
-            const isAccountOwner = accountData.userId == clientUserId;
-            document.title = isAccountOwner ? 'Mein Profil' : `Profil von ${accountData.name}`;
+            //window.location.replace(`/profile/?user=${userId}`);
+        } else {
+            const request = new XMLHttpRequest();
+            request.open('GET', `https://bcaf-api.purplemoss-6328e4b6.germanywestcentral.azurecontainerapps.io/v1/accounts/lookup/${userId}`);
+            request.setRequestHeader('authorization', accessToken);
+            request.onreadystatechange = () => {
+                if (request.readyState != 4)
+                    return;
 
-            const profileContainer = document.getElementById('profileContainer')!;
-            createApp(Profile, { accountData, isAccountOwner }).mount(profileContainer);
+                if (request.status !== 200)
+                    return alert('Etwas ist schiefgegangen.');
 
-            document.getElementById('loadingScreen')?.classList.add('hidden');
-            setTimeout(() => {document.getElementById('loadingScreen')?.remove();}, 500);
+                const accountData = JSON.parse(request.response).response as AccountData;
+                const isAccountOwner = accountData.userId == clientUserId;
+                document.title = isAccountOwner ? 'Mein Profil' : `Profil von ${accountData.name}`;
+
+                const profileContainer = document.getElementById('profileContainer')!;
+                createApp(Profile, { accountData, isAccountOwner }).mount(profileContainer);
+
+                document.getElementById('loadingScreen')?.classList.add('hidden');
+                setTimeout(() => {document.getElementById('loadingScreen')?.remove();}, 500);
+            }
+            request.send();
         }
-        request.send();
     }
 }
 </script>

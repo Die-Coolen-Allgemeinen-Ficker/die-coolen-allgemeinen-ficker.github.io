@@ -20,7 +20,8 @@ export default defineConfig({
         'my-account': resolve(root, 'my-account', 'index.html'),
         profile: resolve(root, 'profile', 'index.html'),
         list: resolve(root, 'profile', 'list', 'index.html'),
-        worlds: resolve(root, 'smp', 'worlds', 'index.html')
+        worlds: resolve(root, 'smp', 'worlds', 'index.html'),
+        ngram: resolve(root, 'ngram', 'index.html')
       }
     }
   },
