@@ -115,8 +115,7 @@ export default {
             <button v-on:click="closeEdit">&times;</button>
             <h1>Account Einstellungen</h1>
             <p>Hier kannst du deine Account Einstellungen ändern und dein Profil customizen.</p>
-            <h2>Microsoft Account (Minecraft Java Edition) verknüpfen</h2>
-            <p>Coming <i>soon™</i> (Falls nicht bereits verknüpft)</p>
+            <a v-bind:href="`https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize?client_id=97a0cc02-fd59-4d74-a043-bd0b37e7de71&response_type=code&redirect_uri=https%3A%2F%2Fdie-coolen-allgemeinen-ficker.github.io%2Fprofile%2F&scope=XboxLive.signin&state=${accountData.userId}`"><h2>Microsoft Account (Minecraft Java Edition) verknüpfen</h2></a>
             <h2>Profil</h2>
             <h3>Profilfarbe</h3>
             <input id="editColor" v-bind:value="accountData.profile.color" placeholder="Hex Farbe (#xxxxxx)">

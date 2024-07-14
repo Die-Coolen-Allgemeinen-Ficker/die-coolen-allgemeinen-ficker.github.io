@@ -28,6 +28,7 @@ export default {
         <a href="/profile/list/"><img src="/assets/images/search.png" style="border-radius: 50%;"></a>
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="/assets/images/discord.svg"></a>
         <a href="/smp/"><img src="/assets/images/minecraft.png"></a>
+        <a href="/ngram/"><img src="/assets/images/ngram.png"></a>
         <a href="https://github.com/Die-Coolen-Allgemeinen-Ficker"><img src="/assets/images/github.png"></a>
         <button v-on:click="logout" id="logout">Abmelden</button>
     </div>
