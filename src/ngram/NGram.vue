@@ -41,7 +41,7 @@ export default {
                     option.value = account.userId;
                     author.appendChild(option);
                 }
-                setTimeout(() => { resolve(null); } , 600);
+                resolve(null);
             };
             request.send();
         });
@@ -67,7 +67,7 @@ export default {
                     option.value = c._id;
                     channel.appendChild(option);
                 }
-                setTimeout(() => { resolve(null); } , 600);
+                resolve(null);
             };
             request.send();
         });
