@@ -26,9 +26,9 @@ function removeLoadingScreen () {
   </div>
 
   <div style="position: absolute; top: 110%; width: 100%">
-    <h1 style="position: relative; left: -50%">Mehr Shit coming <i>soon™</i></h1>
-    <Card title="BCAF Account [Public Beta]" content="Melde dich mit deinem BCAF Account an." href="my-account/"></Card>
-    <Card title="BCAF Account Suche [Public Beta]" content="Schau dir deine BCAF Statistiken oder die von anderen an." href="profile/list/"></Card>
+    <h1 style="position: relative; left: -50%">Mehr Shit came <i>soon™</i></h1>
+    <Card title="BCAF Account" content="Melde dich mit deinem BCAF Account an." href="my-account/" thumbnail="/assets/images/default_pfp.svg"></Card>
+    <Card title="BCAF Profil Suche" content="Schau dir deine BCAF Statistiken oder die von anderen an." href="profile/list/" thumbnail="/assets/images/search.png"></Card>
     <Card title="Discord Server" content="Der Ort der Die Coolen Allgemeinen Ficker zusammenbringt." href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" thumbnail="/assets/images/discord.svg" />
     <Card title="Minecraft SMP" content="🅱CAF hat einen eigenen Minecraft SMP auf dem sowohl Vanilla als auch Modpack Welten gespielt werden." href="smp/" thumbnail="/assets/images/minecraft.png" />
     <Card title="BCAF n-Gramm" content="Suche die Häufigkeit von Wörtern und Texten über Zeit." href="ngram/" thumbnail="/assets/images/ngram.png"></Card>
