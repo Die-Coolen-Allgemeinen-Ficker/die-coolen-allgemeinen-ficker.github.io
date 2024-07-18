@@ -51,6 +51,9 @@ export default {
                 p.innerText = `${achievement.name} - ${achievement.description}${achievement.timestamp ? `\n${new Date(achievement.timestamp).toUTCString()}` : ''}`;
                 p.style.backgroundColor = this.accountData.profile.color;
                 p.style.display = 'content';
+                p.style.borderRadius = '1em';
+                p.style.width = '10em';
+                p.style.margin = '0.25em';
                 if (!names.includes(achievement.name))
                     p.style.color = 'gray';
                 return p;
@@ -175,7 +178,7 @@ export default {
                 </div>
             </div>
             <h3 style="margin-bottom: 0.5em;">Achievements</h3>
-            <div id="dropdownContainer" style="width: 85%"></div>
+            <div id="dropdownContainer" style="width: 100%"></div>
         </div>
         <div class="footer" v-bind:style="{ backgroundColor: `${accountData.profile.color}55` }">
             <p>🅱CAF Mitglied seit: {{ new Date(accountData.bcafJoinTimestamp).toUTCString() }}<br>Account seit: {{ new Date(accountData.createdTimestamp).toUTCString() }}</p>

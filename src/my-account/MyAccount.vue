@@ -62,10 +62,10 @@ export default {
     <Navbar />
     <LoadingScreen />
     <div style="position: absolute; width: 100%; top: 20%;">
-        <div class="container">
+        <!--<div class="container">
             <h1>⚠️ Hinweis ⚠️</h1>
             <p>Das BCAF Account System ist momentan in der Public Beta und besitzt nur die grundlegensten Funktionen.<br>Weitere Features sollten nach und nach in der nahen Zukunft kommen.</p>
-        </div>
+        </div>-->
         <div class="container" id="account-view">
             <h1>Dein Account</h1>
         </div>

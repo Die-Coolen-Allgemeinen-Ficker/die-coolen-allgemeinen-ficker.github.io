@@ -46,8 +46,13 @@ export default {
 </template>
 
 <style>
-.list {
-    list-style-type: none;
+#list {
+  flex-wrap: wrap;
+  display: flex;
+  list-style-type: none
+}
+#list li {
+  flex: 1 0 33.3%;
 }
 
 ::placeholder {

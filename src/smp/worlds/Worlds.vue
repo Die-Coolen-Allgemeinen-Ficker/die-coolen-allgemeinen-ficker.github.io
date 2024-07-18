@@ -29,7 +29,7 @@ export default {
                 const worldsContainer = document.getElementById('worldsContainer')!;
                 const div = document.createElement('div');
                 worldsContainer.appendChild(div);
-                createApp(Card, { title: world.name, content: `Version: ${world.version}${world.modpack ? `\nModpack: ${world.modpack}` : ''}`, href: world.download, banner: `/assets/images/smp_world_banners/${world.banner}` }).mount(div);
+                createApp(Card, { title: world.name, content: `Version: ${world.version}${world.modpack ? `\nModpack: ${world.modpack}` : ''}`, href: world.download, banner: world.banner }).mount(div);
             }
 
             document.getElementById('loadingScreen')?.classList.add('hidden');

@@ -9,7 +9,7 @@ defineProps<{
 <template>
     <div class="dropdown" v-bind:style="{ backgroundColor: color }">
         <button v-on:click="dropdownClick" class="dropdownButton" v-bind:style="{ backgroundColor: color }">{{ name }}</button>
-        <div id="dropdown" class="dropdownContent"></div>
+        <ul id="dropdown" class="dropdownContent" v-bind:style="{ backgroundColor: `${color}55` }"></ul>
     </div>
 </template>
 
@@ -30,7 +30,9 @@ export default {
         const content = document.getElementById('dropdown')!;
 
         this.content.forEach(entry => {
-            content.appendChild(entry);
+            const li = document.createElement('li');
+            li.appendChild(entry);
+            content.appendChild(li);
         });
     },
 
@@ -52,23 +54,23 @@ export default {
     position: relative;
     display: inline-block;
     font-size: 1em;
-    width: 80%;
-    border: solid;
+    width: 100%;
     border-radius: 1em;
 }
 
 .dropdownContent {
     display: none;
     position: absolute;
-    min-width: 80%;
-    overflow: auto;
     z-index: 1;
-    max-width: 1em;
-    border-radius: 1em;
-    border: solid;
+    flex-wrap: wrap;
+    list-style-type: none;
+    border-radius: 2.5em;
+}
+.dropdownContent li {
+    flex: 1 0 33.3%;
 }
 
 .show {
-    display: inherit;
+    display: flex;
 }
 </style>
