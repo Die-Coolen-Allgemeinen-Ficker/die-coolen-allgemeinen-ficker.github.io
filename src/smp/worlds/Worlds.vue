@@ -47,7 +47,18 @@ export default {
         <div class="container">
             <h1>SMP World Downloads</h1>
             <p>
-            Hier sind alle World Downloads von alten SMP Welten die existieren, manche Worlds sind verloren gegangen womp womp.
+            Hier sind alle World Downloads von alten SMP Welten die existieren, manche Worlds wurden nie gesaved.
+            <br>
+            <h3>Welten die verloren gegangen sind</h3>
+            <p>
+            Die erste modded Welt (FTB Ultimate Reloaded)<br>
+            1.7.10 modded Welt (FTB Presents Crackpack)<br>
+            1.16.5 modded Welt<br>
+            Skyfactory 4 Welt<br>
+            1.14 Creative Welt<br>
+            1.15 Bambuskrieg Welt<br>
+            1.16 Nether Spawn Welt
+            </p>
             </p>
         </div>
         <div id="worldsContainer" style="width: 100%; margin-left: 50%;"></div>
