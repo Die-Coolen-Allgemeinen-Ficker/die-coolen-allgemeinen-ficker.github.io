@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
 
 import { resolve } from 'path';
 
@@ -8,7 +8,7 @@ const root = resolve(__dirname, 'src');
 // https://vitejs.dev/config/
 export default defineConfig({
   root,
-  plugins: [vue()],
+  plugins: [ vue() ],
   build: {
     outDir: resolve(__dirname, 'dist'),
     emptyOutDir: true,
@@ -26,5 +26,15 @@ export default defineConfig({
     }
   },
   publicDir: resolve(__dirname, 'public'),
-  base: '/'
-})
+  base: '/',
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://bcaf-api.onrender.com/',
+        changeOrigin: true,
+        secure: true,
+        rewrite: path => path.replace(/^\/api/, '')
+      }
+    }
+  }
+});

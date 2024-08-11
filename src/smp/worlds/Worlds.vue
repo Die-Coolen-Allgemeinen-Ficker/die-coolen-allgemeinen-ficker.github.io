@@ -15,7 +15,7 @@ export default {
 
         const accessToken: string = Cookie.getData().accessToken;
         const request = new XMLHttpRequest();
-        request.open('GET', `https://bcaf-api.purplemoss-6328e4b6.germanywestcentral.azurecontainerapps.io/v1/smp/worlds`);
+        request.open('GET', `https://die-coolen-allgemeinen-ficker.github.io/api/v1/smp/worlds`);
         request.setRequestHeader('authorization', accessToken);
         request.onreadystatechange = () => {
             if (request.readyState != 4)
@@ -54,7 +54,7 @@ export default {
             Die erste modded Welt (FTB Ultimate Reloaded)<br>
             1.7.10 modded Welt (FTB Presents Crackpack)<br>
             1.16.5 modded Welt<br>
-            Skyfactory 4 Welt<br>
+            Modern Skyblock 3: Departed Welt<br>
             1.14 Creative Welt<br>
             1.15 Bambuskrieg Welt<br>
             1.16 Nether Spawn Welt
