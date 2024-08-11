@@ -29,7 +29,7 @@ export default {
         getMinecraftUserName (uuid: string): Promise<string> {
             return new Promise((resolve, _) => {
                 const request = new XMLHttpRequest();
-                request.open('GET', `https://bcaf-api.purplemoss-6328e4b6.germanywestcentral.azurecontainerapps.io/v1/minecraft/name/${uuid}`);
+                request.open('GET', `https://die-coolen-allgemeinen-ficker.github.io/api/v1/minecraft/name/${uuid}`);
                 request.onreadystatechange = () => {
                     if (request.readyState != 4)
                         return;
@@ -93,7 +93,7 @@ export default {
 
             const accessToken: string = Cookie.getData().accessToken;
             const request = new XMLHttpRequest();
-            request.open('POST', `https://bcaf-api.purplemoss-6328e4b6.germanywestcentral.azurecontainerapps.io/v1/accounts/lookup/${this.accountData.userId}`);
+            request.open('POST', `https://die-coolen-allgemeinen-ficker.github.io/api/v1/accounts/lookup/${this.accountData.userId}`);
             request.setRequestHeader('authorization', accessToken);
             request.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
             request.onreadystatechange = () => {

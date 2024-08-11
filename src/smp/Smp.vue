@@ -10,7 +10,7 @@ export default {
     async mounted () {
         const accessToken: string = Cookie.getData().accessToken;
         const request = new XMLHttpRequest();
-        request.open('GET', `https://bcaf-api.purplemoss-6328e4b6.germanywestcentral.azurecontainerapps.io/v1/smp/info`);
+        request.open('GET', `https://die-coolen-allgemeinen-ficker.github.io/api/v1/smp/info`);
         request.setRequestHeader('authorization', accessToken);
         request.onreadystatechange = () => {
             if (request.readyState != 4)
