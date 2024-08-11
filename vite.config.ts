@@ -26,15 +26,5 @@ export default defineConfig({
     }
   },
   publicDir: resolve(__dirname, 'public'),
-  base: '/',
-  server: {
-    proxy: {
-      '/api': {
-        target: 'https://bcaf-api.onrender.com/',
-        changeOrigin: true,
-        secure: true,
-        rewrite: path => path.replace(/^\/api/, '')
-      }
-    }
-  }
+  base: '/'
 });

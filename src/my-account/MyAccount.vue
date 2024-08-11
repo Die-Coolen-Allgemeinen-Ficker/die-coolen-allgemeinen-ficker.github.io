@@ -18,7 +18,7 @@ export default {
             window.location.replace(`/profile/?user=${user.id}`);
         } else if (code) {
             const request = new XMLHttpRequest();
-            request.open('GET', 'https://die-coolen-allgemeinen-ficker.github.io/api/v1/accounts/auth');
+            request.open('GET', 'https://bcaf-api.onrender.com/v1/accounts/auth');
             request.setRequestHeader('authorization', code);
             request.onreadystatechange = () => {
                 if (request.readyState != 4)
