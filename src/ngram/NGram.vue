@@ -22,7 +22,7 @@ export default {
 
         await new Promise((resolve, reject) => {
             const request = new XMLHttpRequest();
-            request.open('GET', 'https://die-coolen-allgemeinen-ficker.github.io/api/v1/accounts/list');
+            request.open('GET', 'https://bcaf-api.onrender.com/v1/accounts/list');
             request.setRequestHeader('authorization', accessToken);
             request.onreadystatechange = () => {
                 if (request.readyState != 4)
@@ -48,7 +48,7 @@ export default {
 
         await new Promise((resolve, reject) => {
             const request = new XMLHttpRequest();
-            request.open('GET', 'https://die-coolen-allgemeinen-ficker.github.io/api/v1/channels/list');
+            request.open('GET', 'https://bcaf-api.onrender.com/v1/channels/list');
             request.setRequestHeader('authorization', accessToken);
             request.onreadystatechange = () => {
                 if (request.readyState != 4)
@@ -101,7 +101,7 @@ export default {
                 (document.getElementById('channel') as HTMLInputElement).value = channel;
 
             const request = new XMLHttpRequest();
-            request.open('GET', `https://die-coolen-allgemeinen-ficker.github.io/api/v1/ngram/search${params}`);
+            request.open('GET', `https://bcaf-api.onrender.com/v1/ngram/search${params}`);
             request.setRequestHeader('authorization', accessToken);
             request.onreadystatechange = () => {
                 if (request.readyState != 4)
